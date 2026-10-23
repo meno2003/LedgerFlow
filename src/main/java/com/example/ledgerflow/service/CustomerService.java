@@ -2,8 +2,8 @@ package com.example.ledgerflow.service;
 
 import com.example.ledgerflow.entity.Customer;
 import com.example.ledgerflow.repository.CustomerRepository;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import java.util.List;
 
 @Service
 public class CustomerService {
@@ -24,4 +24,10 @@ public Customer createCustomer(String firstName, String lastName, String email, 
 
     return customerRepository.save(customer);
 }
+
+public List<Customer> getAllCustomers() {
+    return customerRepository.findAll();
+}
+
+
 }

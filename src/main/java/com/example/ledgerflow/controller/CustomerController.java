@@ -2,10 +2,9 @@ package com.example.ledgerflow.controller;
 
 import com.example.ledgerflow.entity.Customer;
 import com.example.ledgerflow.service.CustomerService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/customers")
@@ -27,6 +26,10 @@ public class CustomerController {
 
         ){
             return customerService.createCustomer(firstName,lastName,email,passwordHash);
+        }
+        @GetMapping
+    public List<Customer> getAllCustomers() {
+            return customerService.getAllCustomers();
         }
 
 
